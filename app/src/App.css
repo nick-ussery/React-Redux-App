@@ -37,8 +37,12 @@
   }
 }
 
+h1{
+  font-size: 30px;
+}
+
 .charImg{
-  height: 400px;
+  height: 200px;
   width: auto;
 }
 
@@ -46,4 +50,13 @@
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  width: 100%;
+  align-content: space-around;
+  flex-direction: row;
+  border: 1px solid black;
+}
+
+.card{
+  width: 35%;
+  height: auto;
 }

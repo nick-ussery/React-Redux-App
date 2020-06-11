@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios'
 import CharacterList from './components/characterList'
@@ -6,17 +6,23 @@ import {connect} from 'react-redux'
 import {fetchCharacterList} from './actions/characterActions'
 
 function App(props) {
+const [searchBar, setSearchBar] = useState('')
+  useEffect(()=>{
+    props.fetchCharacterList(searchBar);
+  },[searchBar])
 
-  axios.get('https://www.breakingbadapi.com/api/characters/')
-  .then(res=>{
-    console.log(res.data)
-  })
-  .catch( err=>{console.log(err)})
+  const handleChange =e =>{
+    setSearchBar(e.target.value)
+  }
   return (
     <div className="App">
-      Breaking Bad
-      <CharacterList className="list" />
-      <button onClick={()=>{props.fetchCharacterList()}}>Get Characters</button>
+      <h1>Breaking Bad</h1>
+      <input type='text'
+      placeholder='SEARCH'
+      value = {props.searchBar}
+      onChange={handleChange}
+      />
+      <CharacterList />
     </div>
   );
 }

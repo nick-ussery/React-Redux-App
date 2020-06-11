@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 const CharacterList = (props) =>{
     // console.log('props given to CHaracterList', props)
     return(
-        <div>
+        <div className="list">
             {props.characters.map(character=>{
                 return <CharacterCard key={character.id} char={character} />
             })}

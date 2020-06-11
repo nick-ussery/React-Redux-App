@@ -3,7 +3,8 @@ import React from 'react';
 export const initialState={
     characters: [],
     isFetching: false,
-    err: ''
+    err: '',
+ 
 }
 
 export const characterReducer = (state=initialState, action) =>{
